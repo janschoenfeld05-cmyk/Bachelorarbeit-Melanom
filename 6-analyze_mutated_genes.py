@@ -7,7 +7,9 @@ import gzip
 from collections import Counter, defaultdict
 from pathlib import Path
 
-BASE_DIR = Path(__file__).resolve().parent.parent
+from script_common import detect_base_dir
+
+BASE_DIR = detect_base_dir(__file__)
 
 
 # Kleine eingebaute Referenz fuer haeufig relevante Krebsgene.

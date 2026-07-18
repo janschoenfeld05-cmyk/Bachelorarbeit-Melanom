@@ -19,10 +19,10 @@ import argparse
 import os
 from pathlib import Path
 
-BASE_DIR = Path(__file__).resolve().parent.parent
+from script_common import configure_runtime_env, detect_base_dir
 
-os.environ.setdefault("MPLCONFIGDIR", "/tmp/matplotlib-codex")
-os.environ.setdefault("XDG_CACHE_HOME", "/tmp/xdg-cache-codex")
+BASE_DIR = detect_base_dir(__file__)
+configure_runtime_env("bachelorarbeit")
 os.environ.setdefault("OMP_NUM_THREADS", "1")
 os.environ.setdefault("OPENBLAS_NUM_THREADS", "1")
 os.environ.setdefault("MKL_NUM_THREADS", "1")
@@ -804,6 +804,7 @@ def main() -> None:
         patient_outdir,
         max_table_rows=args.max_table_rows,
     )
+
     print("Erzeuge Heatmap...", flush=True)
     plot_heatmap(args.sbs96_relative, root / "krebspatienten_sbs96")
 

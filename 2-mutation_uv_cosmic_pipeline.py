@@ -11,7 +11,9 @@ from collections import Counter, defaultdict
 from pathlib import Path
 from typing import Iterable
 
-BASE_DIR = Path(__file__).resolve().parent.parent
+from script_common import detect_base_dir
+
+BASE_DIR = detect_base_dir(__file__)
 
 
 SBS_SUBSTITUTIONS = ["C>A", "C>G", "C>T", "T>A", "T>C", "T>G"]
