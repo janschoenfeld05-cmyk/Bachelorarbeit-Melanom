@@ -36,7 +36,9 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Iterable, Iterator, TextIO
 
-BASE_DIR = Path(__file__).resolve().parent.parent
+from script_common import detect_base_dir
+
+BASE_DIR = detect_base_dir(__file__)
 
 
 ONCOKB_CANDIDATE_URL = "https://www.oncokb.org/api/v1/utils/cancerGeneList"
